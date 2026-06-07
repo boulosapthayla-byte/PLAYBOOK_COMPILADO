@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYBOOK OPERACIONAL</title>
+    <link rel="stylesheet" href="playbook.css">
+    <script src="playbook.js" defer></script>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <header>
+            <h1>PLAYBOOK // <span>OPERACIONAL</span></h1>
+        </header>
+
+        <!-- TRILHA 1 -->
+        <div class="card playbook-section-block" style="margin-bottom: 2rem;">
+    <button class="collapsible-trigger" aria-expanded="false">
+        <span class="trigger-text">trilha 1 / contratos DI - mecanismo dos contratos DI no mercado</span>
+        <span class="arrow-icon">▼</span>
+    </button>
+    
+    <div class="collapsible-content">
+                <div class="section-divider-bg">
+                    
+                    <div class="conteudo-teorico">
+                        <div class="conceito-texto">
+                            <p class="teoria-titulo-principal">Os contratos de Depósitos Interfinanceiros (DI) são contratos futuros de taxa de juros negociados na B3, cujo ativo subjacente é a taxa média diária dos depósitos interfinanceiros, hoje representada pela taxa Selic Over.</p>
+                            
+                            <ul class="teoria-lista-caracteristicas">
+                                <li><strong>Liquidação:</strong> Financeira.</li>
+                                <li><strong>Base:</strong> Os contratos DI não são negociados com base em 365 dias corridos, mas sim com a base de 252 dias úteis.</li>
+                                <li><strong>Código do Ativo (Ticker):</strong> O código do DI Futuro é estruturado por: DI1 + Letra do Mês + Ano de Vencimento (Ex: DI1F26 para Janeiro de 2026).</li>
+                                <li><strong>Referência:</strong> Política Macroeconômica.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="conteudo-questionario">
+                        <div class="card-title">📝 Questionário de Fixação</div>
+                        
+                        <div class="questionario-group">
+                            <label class="pergunta-label" for="campo-resposta">
+                                Como e onde são negociados os contratos DI, o que eles são e como são representados?
+                            </label>
+                            <textarea id="campo-resposta" class="resposta-textarea" placeholder="Cole ou digite sua resposta técnica aqui..."></textarea>
+                        </div>
+
+                        <div class="card-footer">
+                            <span id="mensagem-sucesso" class="status-mensagem">✓ Resposta salva com sucesso no sistema!</span>
+                            <button id="btn-salvar-resposta" class="btn-salvar" type="button">Salvar Resposta</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- TRILHA 2 -->
+        <div class="card playbook-section-block" style="margin-bottom: 2rem;">
+            <button class="collapsible-trigger" aria-expanded="false">
+                <span class="trigger-text">trilha 2 - A curva de juros</span>
+                <span class="arrow-icon">▼</span>
+            </button>
+            
+            <div class="collapsible-content">
+                <div class="section-divider-bg">
+                    
+                    <div class="conteudo-teorico">
+                        <div class="conceito-texto">
+                            <p style="margin-bottom: 1rem;">A curva de juros é o conjunto de taxas DI organizadas por vencimento, do curto ao longo prazo. Ela expressa:</p>
+                            <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; list-style-type: disc;">
+                                <li>Expectativa de Selic futura</li>
+                                <li>Prêmio de risco</li>
+                                <li>Inflação esperada</li>
+                                <li>Credibilidade fiscal</li>
+                                <li>Ciclo econômico</li>
+                            </ul>
+                            <p style="font-weight: 700; color: var(--rosa-vivo); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.8rem;">
+                                &gt;&gt; Curva ≠ Selic atual
+                            </p>
+                            <p style="font-size: 0.95rem; opacity: 0.9;">A Selic é o presente. A curva é o futuro precificado.</p>
+                        </div>
+                    </div>
+
+                    <div class="conteudo-questionario">
+                        <div class="card-title">📝 Questionário de Fixação</div>
+                        
+                        <div class="questionario-group" style="margin-bottom: 1.5rem;">
+                            <label class="pergunta-label" for="campo-resposta-t2">
+                                O que é a Curva de Juros e quais são os 5 pilares macroeconômicos que determinam a sua variação?
+                            </label>
+                            <textarea id="campo-resposta-t2" class="resposta-textarea" placeholder="Cole ou digite sua resposta técnica aqui..."></textarea>
+                        </div>
+
+                        <div class="container-flashcards-grid">
+                            <div class="flashcard-wrapper">
+                                <div class="flashcard-card">
+                                    <div class="flashcard-face flashcard-front">
+                                        <div class="flashcard-header-interativo">
+                                            <div class="card-title">📉 Vértices de Curto Prazo</div>
+                                            <button type="button" class="btn-virar-card">Responder 🔄</button>
+                                        </div>
+                                        <p class="flashcard-texto-pergunta">Dentro de qual período/vencimento se posicionam os vértices de curto e médio-curto prazo na curva de juros?</p>
+                                        <div class="flashcard-status-salvo" id="status-salvo-fc1">Status: Pendente</div>
+                                    </div>
+                                    <div class="flashcard-face flashcard-back">
+                                        <div class="flashcard-header-interativo">
+                                            <div class="card-title" style="color: #00ff66;">📝 Sua Resposta</div>
+                                            <button type="button" class="btn-virar-card">Ver Pergunta 🔄</button>
+                                        </div>
+                                        <textarea id="resposta-fc1" class="resposta-textarea-card" placeholder="Ex: Curto até 1 ano, médio-curto de 1 a 3 anos..."></textarea>
+                                        <div class="card-footer-flashcard">
+                                            <span id="mensagem-sucesso-fc1" class="status-mensagem">✓ Salvo!</span>
+                                            <button id="btn-salvar-fc1" class="btn-salvar-fc" type="button">Salvar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="flashcard-wrapper">
+                                <div class="flashcard-card">
+                                    <div class="flashcard-face flashcard-front">
+                                        <div class="flashcard-header-interativo">
+                                            <div class="card-title">📈 Vértices de Longo Prazo</div>
+                                            <button type="button" class="btn-virar-card">Responder 🔄</button>
+                                        </div>
+                                        <p class="flashcard-texto-pergunta">Dentro de qual período/vencimento se posicionam os vértices de médio e longo prazo na curva de juros?</p>
+                                        <div class="flashcard-status-salvo" id="status-salvo-fc2">Status: Pendente</div>
+                                    </div>
+                                    <div class="flashcard-face flashcard-back">
+                                        <div class="flashcard-header-interativo">
+                                            <div class="card-title" style="color: #00ff66;">📝 Sua Resposta</div>
+                                            <button type="button" class="btn-virar-card">Ver Pergunta 🔄</button>
+                                        </div>
+                                        <textarea id="resposta-fc2" class="resposta-textarea-card" placeholder="Ex: Médio de 3 a 5 anos, longo acima de 5 anos..."></textarea>
+                                        <div class="card-footer-flashcard">
+                                            <span id="mensagem-sucesso-fc2" class="status-mensagem">✓ Salvo!</span>
+                                            <button id="btn-salvar-fc2" class="btn-salvar-fc" type="button">Salvar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-footer" style="margin-top: 1.5rem;">
+                            <span id="mensagem-sucesso-t2" class="status-mensagem">✓ Resposta salva com sucesso no sistema!</span>
+                            <button id="btn-salvar-resposta-t2" class="btn-salvar" type="button">Salvar Resposta</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- TRILHA 3 (NOVA COPIADA COM O SISTEMA DE 3 PÁGINAS) -->
+        <div class="card playbook-section-block">
+            <button class="collapsible-trigger" aria-expanded="false">
+                <span class="trigger-text">trilha 3 - Formatos clássicos da curva de juros</span>
+                <span class="arrow-icon">▼</span>
+            </button>
+            
+            <div class="collapsible-content">
+                <div class="section-divider-bg">
+                    
+                    <!-- CONTAINER DAS SUBPÁGINAS DA TRILHA 3 -->
+                    <div class="trilha3-paginas-wrapper">
+                        
+                        <!-- PÁGINA 1: CURVA INCLINADA -->
+                        <div class="t3-pagina active" data-page="1">
+                            <div class="conteudo-teorico">
+                                <div class="card-title" style="font-size: 0.9rem; opacity: 0.6; margin-bottom: 0.5rem;">Formatos Clássicos // Página 1 de 3</div>
+                                <div class="conceito-texto">
+                                    <p class="teoria-titulo-principal" style="font-weight: 700; color: var(--rosa-vivo);">📉 1. Case Curva Inclinada (Normal)</p>
+                                    <p style="margin-bottom: 1rem;"><strong>Crescimento e Inflação:</strong> Se a economia está saudável ou em ritmo de crescimento, a atividade econômica gera consumo. Consumo futuro gera expectativa de inflação controlada ou ascendente, o que exigirá juros condizentes lá na frente.</p>
+                                    <p><strong>Prêmio de Risco:</strong> O tempo é o maior inimigo da certeza. É natural que o mercado cobre mais caro para travar o capital por 10 ou 16 anos do que por 6 meses. O investidor exige um prêmio por carregar a incerteza do futuro distante.</p>
+                                </div>
+                            </div>
+
+                            <div class="conteudo-questionario" style="margin-top: 1.5rem;">
+                                <div class="container-flashcards-grid">
+                                    <div class="flashcard-wrapper">
+                                        <div class="flashcard-card">
+                                            <div class="flashcard-face flashcard-front">
+                                                <div class="flashcard-header-interativo">
+                                                    <div class="card-title">🤔 Análise Reflexiva</div>
+                                                    <button type="button" class="btn-virar-card">Responder 🔄</button>
+                                                </div>
+                                                <p class="flashcard-texto-pergunta"><strong>A Pergunta de Estudo:</strong> Se o cenário é de crescimento econômico e o tempo naturalmente adiciona incerteza, por que faz sentido técnico a taxa longa ser maior que a curta?</p>
+                                                <div class="flashcard-status-salvo" id="status-salvo-fc3">Status: Pendente</div>
+                                            </div>
+                                            <div class="flashcard-face flashcard-back">
+                                                <div class="flashcard-header-interativo">
+                                                    <div class="card-title" style="color: #00ff66;">📝 Sua Resposta</div>
+                                                    <button type="button" class="btn-virar-card">Ver Pergunta 🔄</button>
+                                                </div>
+                                                <textarea id="resposta-fc3" class="resposta-textarea-card" placeholder="Digite sua resposta analítica técnica aqui..."></textarea>
+                                                <div class="card-footer-flashcard">
+                                                    <span id="mensagem-sucesso-fc3" class="status-mensagem">✓ Salvo!</span>
+                                                    <button id="btn-salvar-fc3" class="btn-salvar-fc" type="button">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PÁGINA 2: CURVA INVERTIDA (ESTRUTURA IDÊNTICA PRONTA PARA EDIÇÃO) -->
+                        <div class="t3-pagina" data-page="2">
+                            <div class="conteudo-teorico">
+                                <div class="card-title" style="font-size: 0.9rem; opacity: 0.6; margin-bottom: 0.5rem;">Formatos Clássicos // Página 2 de 3</div>
+                                <div class="conceito-texto">
+                                    <p class="teoria-titulo-principal" style="font-weight: 700; color: var(--rosa-vivo);">🔄 2. Case Curva Invertida</p>
+                                    <p style="margin-bottom: 1rem;"><strong>Aperto Monetário:</strong> Isso acontece quando o Banco Central subiu muito a Selic atual (curto prazo) para tentar frear uma inflação descontrolada ou um choque econômico no presente.
+.</p>
+                                    <p><strong>Risco de Desaceleração:</strong> O mercado precifica que o juro atual está tão alto que ele vai, obrigatoriamente, "esfriar" ou sufocar a economia logo ali na frente. Se a economia vai desacelerar no futuro, a inflação vai cair e o Banco Central será forçado a cortar os juros lá na frente. Por isso, os contratos longos negociam com taxas menores do que o curto prazo de hoje.
+</p>
+                                </div>
+                            </div>
+
+                            <div class="conteudo-questionario" style="margin-top: 1.5rem;">
+                                <div class="container-flashcards-grid">
+                                    <div class="flashcard-wrapper">
+                                        <div class="flashcard-card">
+                                            <div class="flashcard-face flashcard-front">
+                                                <div class="flashcard-header-interativo">
+                                                    <div class="card-title">🤔 Análise Reflexiva</div>
+                                                    <button type="button" class="btn-virar-card">Responder 🔄</button>
+                                                </div>
+                                                <p class="flashcard-texto-pergunta"><strong>A Pergunta de Estudo:</strong> Se o curto prazo está sufocando a economia hoje, qual é a lógica matemática que faz o mercado aceitar taxas menores nos contratos mais longos?</p>
+                                                <div class="flashcard-status-salvo" id="status-salvo-fc4">Status: Pendente</div>
+                                            </div>
+                                            <div class="flashcard-face flashcard-back">
+                                                <div class="flashcard-header-interativo">
+                                                    <div class="card-title" style="color: #00ff66;">📝 Sua Resposta</div>
+                                                    <button type="button" class="btn-virar-card">Ver Pergunta 🔄</button>
+                                                </div>
+                                                <textarea id="resposta-fc4" class="resposta-textarea-card" placeholder="Digite sua resposta analítica técnica aqui..."></textarea>
+                                                <div class="card-footer-flashcard">
+                                                    <span id="mensagem-sucesso-fc4" class="status-mensagem">✓ Salvo!</span>
+                                                    <button id="btn-salvar-fc4" class="btn-salvar-fc" type="button">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- PÁGINA 3: CURVA FLAT (ESTRUTURA IDÊNTICA PRONTA PARA EDIÇÃO) -->
+                        <div class="t3-pagina" data-page="3">
+                            <div class="conteudo-teorico">
+                                <div class="card-title" style="font-size: 0.9rem; opacity: 0.6; margin-bottom: 0.5rem;">Formatos Clássicos // Página 3 de 3</div>
+                                <div class="conceito-texto">
+                                    <p class="teoria-titulo-principal" style="font-weight: 700; color: var(--rosa-vivo);">⚖️ 3. Case Curva Flat (Plana)</p>
+                                    <p style="margin-bottom: 1rem;"><strong>Incerteza Máxima:</strong> O mercado perdeu a visibilidade do horizonte. Os operadores não sabem se o próximo passo da economia é uma aceleração ou uma crise.</p>
+                                    <p><strong>Transição de Regime:</strong> Geralmente acontece na inversão de ciclos. A curva está deixando de ser inclinada para virar invertida (ou vice-versa). O mercado está recalculando as forças: a pressão do curto prazo e as incertezas do longo prazo se equivalem na matemática dos preços, empatando as taxas.</p>
+                                </div>
+                            </div>
+
+                            <div class="conteudo-questionario" style="margin-top: 1.5rem;">
+                                <div class="container-flashcards-grid">
+                                    <div class="flashcard-wrapper">
+                                        <div class="flashcard-card">
+                                            <div class="flashcard-face flashcard-front">
+                                                <div class="flashcard-header-interativo">
+                                                    <div class="card-title">🤔 Análise Reflexiva</div>
+                                                    <button type="button" class="btn-virar-card">Responder 🔄</button>
+                                                </div>
+                                                <p class="flashcard-texto-pergunta"><strong>A Pergunta de Estudo:</strong> Quando as forças de curto prazo e os prêmios de longo prazo se igualam na mesma taxa, que tipo de transição de regime econômico o mercado está tentando adivinhar?</p>
+                                                <div class="flashcard-status-salvo" id="status-salvo-fc5">Status: Pendente</div>
+                                            </div>
+                                            <div class="flashcard-face flashcard-back">
+                                                <div class="flashcard-header-interativo">
+                                                    <div class="card-title" style="color: #00ff66;">📝 Sua Resposta</div>
+                                                    <button type="button" class="btn-virar-card">Ver Pergunta 🔄</button>
+                                                </div>
+                                                <textarea id="resposta-fc5" class="resposta-textarea-card" placeholder="Digite sua resposta analítica técnica aqui..."></textarea>
+                                                <div class="card-footer-flashcard">
+                                                    <span id="mensagem-sucesso-fc5" class="status-mensagem">✓ Salvo!</span>
+                                                    <button id="btn-salvar-fc5" class="btn-salvar-fc" type="button">Salvar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- CONTROLADOR DE NAVEGAÇÃO ENTRE PÁGINAS (SETAS COPIADAS DA ESTRUTURA GLOBAL) -->
+                    <div class="t3-navegacao-container">
+                        <button type="button" class="btn-nav-seta id-btn-prev" disabled>◀ Voltar</button>
+                        <div class="nav-indicador-pags">Página <span class="num-pag-atual">1</span> de 3</div>
+                        <button type="button" class="btn-nav-seta id-btn-next">Avançar ▶</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
