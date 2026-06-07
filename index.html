@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook Operacional - Início</title>
+    <style>
+        :root {
+            --bg-pag-absoluto: #0a0a0c;   
+            --bg-azul-dark-vão: #16161f;  
+            --bg-card-interno: #0f0f14;   
+            --rosa-vivo: #ff007f;          
+            --rosa-hover: #d8006b;         
+            --texto-principal: #f4f4f6;    
+            --borda: #262633;              
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-pag-absoluto);
+            color: var(--texto-principal);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+        }
+
+        .welcome-container {
+            width: 100%;
+            max-width: 550px; 
+            background-color: var(--bg-azul-dark-vão);
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            animation: cardEntrance 0.5s ease-out;
+        }
+
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .welcome-header {
+            border-bottom: 2px solid var(--rosa-vivo);
+            padding: 2rem 1.5rem 1.2rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(22,22,31,1) 0%, rgba(15,15,20,0.6) 100%);
+        }
+
+        .welcome-header h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--texto-principal);
+            text-transform: uppercase;
+        }
+
+        .welcome-header h1 span {
+            color: var(--rosa-vivo);
+        }
+
+        .welcome-body {
+            padding: 2rem 1.5rem;
+            background-color: var(--bg-card-interno);
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .welcome-texto {
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--texto-principal);
+            background: linear-gradient(90deg, #1f121e 0%, #13131a 100%);
+            padding: 1.2rem;
+            border-left: 4px solid var(--rosa-vivo); 
+            border-radius: 0 4px 4px 0;
+            opacity: 0.9;
+        }
+
+        .welcome-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+            padding-left: 0.5rem;
+        }
+
+        .welcome-features li {
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(244, 244, 246, 0.8);
+        }
+
+        .welcome-features li::before {
+            content: "✓";
+            color: var(--rosa-vivo);
+            font-weight: bold;
+        }
+
+        .welcome-footer {
+            padding: 0.5rem 0 1rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn-acessar-playbook {
+            width: 100%;
+            background-color: var(--rosa-vivo);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 0, 127, 0.2);
+        }
+
+        .btn-acessar-playbook:hover {
+            background-color: var(--rosa-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 0, 127, 0.4);
+        }
+
+        .btn-acessar-playbook:active {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="welcome-container">
+        
+        <div class="welcome-header">
+            <h1>PLAYBOOK // <span>OPERACIONAL</span></h1>
+        </div>
+
+        <div class="welcome-body">
+            <p class="welcome-texto">
+                Bem-vindo ao hub de treinamento técnico. Aqui você encontrará os blocos operacionais, mecânicas de curvas de juros (DI) e ferramentas de fixação interativas.
+            </p>
+
+            <ul class="welcome-features">
+                <li>Contratos DI e Curvas de Juros</li>
+                <li>Formatos clássicos com navegação interna</li>
+                <li>Flashcards dinâmicos com salvamento local</li>
+            </ul>
+
+            <div class="welcome-footer">
+                <button id="btn-entrar" class="btn-acessar-playbook" type="button">
+                    Iniciar Treinamento ⚡
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        document.getElementById('btn-entrar').addEventListener('click', function() {
+            // Abre o playbook principal em uma nova guia do navegador
+            window.open('playbook.html', '_blank');
+        });
+    </script>
+
+</body>
+</html>
+
