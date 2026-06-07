@@ -1,0 +1,815 @@
+:root {
+
+    --bg-pag-absoluto: #0a0a0c;   
+
+    --bg-azul-dark-vão: #16161f;  
+
+    --bg-card-interno: #0f0f14;   
+
+    --rosa-vivo: #ff007f;          
+
+    --rosa-hover: #d8006b;         
+
+    --texto-principal: #f4f4f6;    
+
+    --borda: #262633;              
+
+}
+
+
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+
+
+body {
+
+    background-color: var(--bg-pag-absoluto);
+
+    color: var(--texto-principal);
+
+    min-height: 100vh;
+
+    padding: 2rem 1.5rem; 
+
+    display: flex;
+
+    justify-content: center;
+
+}
+
+
+
+.dashboard-container {
+
+    width: 100%;
+
+    max-width: 100%; 
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+}
+
+
+
+header {
+
+    border-bottom: 2px solid var(--rosa-vivo);
+
+    padding-bottom: 1rem;
+
+    margin-bottom: 2rem;
+
+    text-align: left;
+
+}
+
+
+
+header h1 {
+
+    font-size: 1.8rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    color: var(--texto-principal);
+
+}
+
+
+
+header h1 span {
+
+    color: var(--rosa-vivo);
+
+}
+
+
+
+.playbook-section-block {
+
+    width: 100%; 
+
+    background-color: var(--bg-azul-dark-vão);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+
+}
+
+
+
+.collapsible-trigger {
+
+    width: 100%;
+
+    background: none;
+
+    border: none;
+
+    padding: 1.5rem;
+
+    color: var(--texto-principal);
+
+    font-size: 1.05rem;
+
+    font-weight: 600;
+
+    text-align: left;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    transition: background-color 0.2s ease;
+
+}
+
+
+
+.collapsible-trigger:hover {
+
+    background-color: rgba(255, 0, 127, 0.03);
+
+}
+
+
+
+.trigger-text {
+
+    text-transform: uppercase;
+
+    font-size: 0.95rem;
+
+    letter-spacing: 0.5px;
+
+}
+
+
+
+.arrow-icon {
+
+    color: var(--rosa-vivo);
+
+    font-size: 0.8rem;
+
+    transition: transform 0.3s ease;
+
+}
+
+
+
+.collapsible-content {
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
+
+}
+
+
+
+.collapsible-content.open {
+
+    max-height: 2000px; /* Aumentado para não cortar os flashcards internos */
+
+    border-top: 1px solid var(--borda);
+
+}
+
+
+
+.collapsible-trigger[aria-expanded="false"] .arrow-icon {
+
+    transform: rotate(-90deg); 
+
+}
+
+
+
+.section-divider-bg {
+
+    background-color: var(--bg-azul-dark-vão);
+
+    padding: 1.5rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1.5rem;
+
+}
+
+
+
+.conteudo-teorico, 
+
+.conteudo-questionario {
+
+    background-color: var(--bg-card-interno);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 6px;
+
+    padding: 1.5rem;
+
+}
+
+
+
+.card-title {
+
+    font-size: 1.1rem;
+
+    color: var(--rosa-vivo);
+
+    margin-bottom: 1rem;
+
+    text-transform: uppercase;
+
+    font-weight: 600;
+
+}
+
+
+
+.conceito-texto {
+
+    font-size: 1.05rem;
+
+    line-height: 1.6;
+
+    color: var(--texto-principal);
+
+    background: linear-gradient(90deg, #1f121e 0%, #13131a 100%);
+
+    padding: 1.2rem;
+
+    border-left: 4px solid var(--rosa-vivo); 
+
+    border-radius: 0 4px 4px 0;
+
+}
+
+
+
+.questionario-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1rem;
+
+}
+
+
+
+.pergunta-label {
+
+    font-size: 1.15rem;
+
+    font-weight: 500;
+
+    line-height: 1.4;
+
+}
+
+
+
+.resposta-textarea {
+
+    width: 100%;
+
+    height: 150px;
+
+    background-color: var(--bg-pag-absoluto);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 6px;
+
+    padding: 1rem;
+
+    color: var(--texto-principal);
+
+    font-size: 1rem;
+
+    line-height: 1.5;
+
+    resize: vertical;
+
+}
+
+
+
+.resposta-textarea:focus {
+
+    outline: none;
+
+    border-color: var(--rosa-vivo);
+
+}
+
+
+
+.card-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 1rem;
+
+    padding-top: 0.8rem;
+
+    border-top: 1px solid var(--borda);
+
+}
+
+
+
+.status-mensagem {
+
+    font-size: 0.9rem;
+
+    color: #00ff66;
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+
+}
+
+
+
+.status-mensagem.visible {
+
+    opacity: 1;
+
+}
+
+
+
+.btn-salvar {
+
+    background-color: var(--rosa-vivo);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 4px;
+
+    padding: 0.6rem 1.5rem;
+
+    font-size: 0.95rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+
+.btn-salvar:hover {
+
+    background-color: var(--rosa-hover);
+
+}
+
+
+
+.teoria-titulo-principal {
+
+    margin-bottom: 1.2rem;
+
+    font-size: 1.05rem;
+
+    line-height: 1.5;
+
+}
+
+
+
+.teoria-lista-caracteristicas {
+
+    margin-left: 1.5rem;
+
+    list-style-type: disc;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0.8rem;
+
+}
+
+
+
+.teoria-lista-caracteristicas li {
+
+    font-size: 0.98rem;
+
+    line-height: 1.5;
+
+    color: var(--texto-principal);
+
+}
+
+
+
+.teoria-lista-caracteristicas li strong {
+
+    color: var(--rosa-vivo);
+
+}
+
+
+
+/* ==========================================
+
+   CSS EXCLUSIVO DOS FLASHCARDS INTERATIVOS
+
+   ========================================== */
+
+.container-flashcards-grid {
+
+    display: flex;
+
+    gap: 1.5rem;
+
+    width: 100%;
+
+    margin-top: 1.5rem;
+
+}
+
+
+
+@media (max-width: 900px) {
+
+    .container-flashcards-grid {
+
+        flex-direction: column;
+
+    }
+
+}
+
+
+
+.flashcard-wrapper {
+
+    flex: 1;
+
+    min-height: 250px; 
+
+    perspective: 1000px;
+
+}
+
+
+
+.flashcard-card {
+
+    width: 100%;
+
+    height: 100%;
+
+    position: relative;
+
+    transform-style: preserve-3d;
+
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+}
+
+
+
+.flashcard-card.flipped {
+
+    transform: rotateY(180deg);
+
+}
+
+
+
+.flashcard-face {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    backface-visibility: hidden;
+
+    border: 1px solid var(--borda);
+
+    border-radius: 6px;
+
+    padding: 1.2rem;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+}
+
+
+
+.flashcard-front {
+
+    background-color: var(--bg-card-interno);
+
+}
+
+
+
+.flashcard-back {
+
+    background: linear-gradient(135deg, #0f0f14 0%, #1a111a 100%);
+
+    transform: rotateY(180deg);
+
+}
+
+
+
+.flashcard-header-interativo {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 0.8rem;
+
+}
+
+
+
+.flashcard-header-interativo .card-title {
+
+    margin-bottom: 0 !important;
+
+}
+
+
+
+.btn-virar-card {
+
+    background: rgba(255, 0, 127, 0.1);
+
+    color: var(--rosa-vivo);
+
+    border: 1px solid rgba(255, 0, 127, 0.3);
+
+    padding: 0.3rem 0.7rem;
+
+    border-radius: 4px;
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+}
+
+
+
+.btn-virar-card:hover {
+
+    background: var(--rosa-vivo);
+
+    color: white;
+
+}
+
+
+
+.flashcard-texto-pergunta {
+
+    font-size: 0.95rem;
+
+    line-height: 1.5;
+
+    color: var(--texto-principal);
+
+    flex-grow: 1;
+
+}
+
+
+
+.flashcard-status-salvo {
+
+    font-size: 0.8rem;
+
+    color: rgba(255, 255, 255, 0.4);
+
+    margin-top: 0.5rem;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+    padding-top: 0.4rem;
+
+}
+
+
+
+.resposta-textarea-card {
+
+    width: 100%;
+
+    height: 90px;
+
+    background-color: var(--bg-pag-absoluto);
+
+    border: 1px solid var(--borda);
+
+    border-radius: 4px;
+
+    padding: 0.6rem;
+
+    color: var(--texto-principal);
+
+    font-size: 0.9rem;
+
+    line-height: 1.4;
+
+    resize: none;
+
+    margin-bottom: 0.5rem;
+
+}
+
+
+
+.resposta-textarea-card:focus {
+
+    outline: none;
+
+    border-color: var(--rosa-vivo);
+
+}
+
+
+
+.card-footer-flashcard {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 0.4rem;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+}
+
+
+
+.btn-salvar-fc {
+
+    background-color: var(--rosa-vivo);
+
+    color: white;
+
+    border: none;
+
+    border-radius: 4px;
+
+    padding: 0.4rem 1rem;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+}
+
+
+
+.btn-salvar-fc:hover {
+
+    background-color: var(--rosa-hover);
+
+}
+
+/* ==========================================
+   CSS EXCLUSIVO DA PAGINAÇÃO DA TRILHA 3
+   ========================================== */
+.trilha3-paginas-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.t3-pagina {
+    display: none;
+    width: 100%;
+}
+
+.t3-pagina.active {
+    display: block;
+    animation: fadeInPage 0.3s ease-in-out;
+}
+
+@keyframes fadeInPage {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.t3-navegacao-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--borda);
+    background-color: var(--bg-card-interno);
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--borda);
+}
+
+.btn-nav-seta {
+    background: rgba(255, 0, 127, 0.1);
+    color: var(--rosa-vivo);
+    border: 1px solid rgba(255, 0, 127, 0.3);
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.btn-nav-seta:hover:not(:disabled) {
+    background: var(--rosa-vivo);
+    color: white;
+}
+
+.btn-nav-seta:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+    border-color: var(--borda);
+    color: var(--texto-principal);
+    background: none;
+}
+
+.nav-indicador-pags {
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.nav-indicador-pags span {
+    color: var(--rosa-vivo);
+    font-weight: 700;
+}
