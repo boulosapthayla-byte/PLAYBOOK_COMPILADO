@@ -84,34 +84,14 @@
             border-left: 4px solid var(--rosa-vivo); 
             border-radius: 0 4px 4px 0;
             opacity: 0.9;
-        }
-
-        .welcome-features {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.7rem;
-            padding-left: 0.5rem;
-        }
-
-        .welcome-features li {
-            font-size: 0.95rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: rgba(244, 244, 246, 0.8);
-        }
-
-        .welcome-features li::before {
-            content: "✓";
-            color: var(--rosa-vivo);
-            font-weight: bold;
+            margin-bottom: 0.5rem;
         }
 
         .welcome-footer {
-            padding: 0.5rem 0 1rem 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column; /* Botões um embaixo do outro */
+            gap: 1rem; /* Espaço entre botões */
+            padding-bottom: 1rem;
         }
 
         .btn-acessar-playbook {
@@ -120,28 +100,32 @@
             color: white;
             border: none;
             border-radius: 4px;
-            padding: 1rem 2rem;
-            font-size: 1.1rem;
+            padding: 1rem 1.5rem;
+            font-size: 0.95rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
             cursor: pointer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.8rem;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(255, 0, 127, 0.2);
+            box-shadow: 0 4px 10px rgba(255, 0, 127, 0.1);
+            text-align: center;
         }
 
         .btn-acessar-playbook:hover {
             background-color: var(--rosa-hover);
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 0, 127, 0.4);
+            box-shadow: 0 6px 20px rgba(255, 0, 127, 0.3);
         }
 
-        .btn-acessar-playbook:active {
-            transform: translateY(0);
+        /* Cor opcional para diferenciar o "Plano de Trade" se quiser */
+        .btn-trade {
+            background-color: transparent;
+            border: 1px solid var(--rosa-vivo);
+            color: var(--rosa-vivo);
+        }
+        
+        .btn-trade:hover {
+            background-color: rgba(255, 0, 127, 0.05);
         }
     </style>
 </head>
@@ -150,23 +134,25 @@
     <div class="welcome-container">
         
         <div class="welcome-header">
-            <h1>PLAYBOOK // <span>OPERACIONAL</span></h1>
+            <h1>PLAYBOOK // <span>ESTUDO INTERATIVO</span></h1>
         </div>
 
         <div class="welcome-body">
             <p class="welcome-texto">
-                Bem-vindo ao hub de treinamento técnico. Aqui você encontrará os blocos operacionais, mecânicas de curvas de juros (DI) e ferramentas de fixação interativas.
+                Aqui vamos formentar e fixar nosso conhecimento. Entenda cada tópico a fundo antes de seguir para as aulas. O tempo refine nosso conhecimento matemático que move a análise. Obtenha resultados extraordinários no futuro!
             </p>
 
-            <ul class="welcome-features">
-                <li>Contratos DI e Curvas de Juros</li>
-                <li>Formatos clássicos com navegação interna</li>
-                <li>Flashcards dinâmicos com salvamento local</li>
-            </ul>
-
             <div class="welcome-footer">
-                <button id="btn-entrar" class="btn-acessar-playbook" type="button">
-                    Iniciar Treinamento ⚡
+                <button id="btn-trade" class="btn-acessar-playbook btn-trade" type="button">
+                    Iniciar Playbook Plano de trade
+                </button>
+
+                <button id="btn-p1" class="btn-acessar-playbook" type="button">
+                    Iniciar Playbook Operacional // Parte 1
+                </button>
+
+                <button id="btn-p2" class="btn-acessar-playbook" type="button">
+                    Iniciar Playbook Operacional // Parte 2
                 </button>
             </div>
         </div>
@@ -174,12 +160,25 @@
     </div>
 
     <script>
-        document.getElementById('btn-entrar').addEventListener('click', function() {
-            // Abre o playbook principal em uma nova guia do navegador
-            window.open('playbook.html', '_blank');
+        // Configuração dos caminhos (Mude os nomes dos arquivos abaixo se necessário)
+        const caminhos = {
+            trade: 'plano_de_trade.html',
+            parte1: 'playbook.html',
+            parte2: 'playbook_parte2.html'
+        };
+
+        document.getElementById('btn-trade').addEventListener('click', function() {
+            window.open(caminhos.trade, '_blank');
+        });
+
+        document.getElementById('btn-p1').addEventListener('click', function() {
+            window.open(caminhos.parte1, '_blank');
+        });
+
+        document.getElementById('btn-p2').addEventListener('click', function() {
+            window.open(caminhos.parte2, '_blank');
         });
     </script>
 
 </body>
 </html>
-
