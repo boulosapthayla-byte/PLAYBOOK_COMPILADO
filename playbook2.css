@@ -1,0 +1,324 @@
+:root {
+    --bg-pag-absoluto: #0a0a0c;   
+    --bg-azul-dark-vao: #16161f;  
+    --bg-card-interno: #0f0f14;   
+    --rosa-vivo: #ff007f;          
+    --rosa-hover: #d8006b;         
+    --texto-principal: #f4f4f6;    
+    --texto-secundario: #a1a1aa;
+    --borda: #262633;              
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Ajustado para eliminar rolagens desnecessárias e travar o tamanho na tela */
+body {
+    background-color: var(--bg-pag-absoluto);
+    color: var(--texto-principal);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Evita barras de rolagem no body principal */
+}
+
+/* Modificado para ocupar 100% da tela sem bordas arredondadas externas */
+.container-p2 {
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-azul-dark-vao);
+    display: flex;
+    flex-direction: column;
+}
+
+.header-p2 {
+    padding: 1.5rem 2rem 1rem 2rem;
+    text-align: center;
+    border-bottom: 1px solid var(--borda);
+}
+
+.header-p2 h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--texto-principal);
+    text-transform: uppercase;
+}
+
+.header-p2 h1 span {
+    color: var(--rosa-vivo);
+}
+
+.subtitle-p2 {
+    font-size: 0.9rem;
+    color: var(--texto-secundario);
+    margin-top: 0.4rem;
+}
+
+/* Abas */
+.nav-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--borda);
+    background-color: rgba(0, 0, 0, 0.2);
+    flex-shrink: 0; /* Impede que o menu achate */
+}
+
+.tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 1.2rem;
+    color: var(--texto-secundario);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+}
+
+.tab-btn:hover {
+    color: var(--texto-principal);
+    background-color: rgba(255, 0, 127, 0.02);
+}
+
+.tab-btn.active {
+    color: var(--rosa-vivo);
+    border-bottom: 2px solid var(--rosa-vivo);
+    background-color: var(--bg-card-interno);
+}
+
+/* Área de conteúdo agora herda o espaço restante da tela e ganha rolagem própria se necessário */
+.content-p2 {
+    padding: 2rem;
+    background-color: var(--bg-card-interno);
+    flex: 1;
+    overflow-y: auto; /* Permite rolar apenas o conteúdo interno se a matriz for gigante */
+}
+
+.tab-section {
+    display: none;
+    height: 100%;
+}
+
+.tab-section.active {
+    display: block;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Inputs */
+.form-matrix {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 1200px; /* Mantém o formulário legível em telas ultrawide */
+    margin: 0 auto;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--texto-secundario);
+    text-transform: uppercase;
+}
+
+.input-group textarea, 
+.input-group input[type="text"], 
+.input-group input[type="password"] {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    padding: 1rem;
+    color: var(--texto-principal);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.input-group textarea {
+    min-height: 180px; /* Aumentado ligeiramente para aproveitar a tela cheia */
+    resize: vertical;
+}
+
+.input-group textarea:focus,
+.input-group input:focus {
+    outline: none;
+    border-color: var(--rosa-vivo);
+}
+
+.help-text {
+    font-size: 0.8rem;
+    color: var(--texto-secundario);
+    font-style: italic;
+}
+
+/* Botões */
+.btn-matrix {
+    background-color: var(--rosa-vivo);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-matrix:hover {
+    background-color: var(--rosa-hover);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--borda);
+    color: var(--texto-principal);
+}
+
+.btn-secondary:hover {
+    background-color: var(--borda);
+}
+
+.btn-danger {
+    background-color: transparent;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+    color: rgba(255, 100, 100, 0.8);
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-danger:hover {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: white;
+}
+
+/* Matriz e Linha de Expansão (Sanfona) */
+.matrix-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.counter-badge {
+    font-size: 0.85rem;
+    background-color: var(--borda);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    color: var(--texto-secundario);
+}
+
+.table-wrapper {
+    width: 100%;
+    border: 1px solid var(--borda);
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.matrix-table th {
+    background-color: rgba(0, 0, 0, 0.4);
+    color: var(--texto-principal);
+    padding: 1.2rem 1rem;
+    font-weight: 700;
+    border-bottom: 2px solid var(--borda);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.row-pergunta {
+    cursor: pointer;
+}
+
+.row-pergunta:hover td {
+    background-color: rgba(255, 0, 127, 0.03);
+}
+
+.row-pergunta td {
+    padding: 1.2rem 1rem;
+    border-bottom: 1px solid var(--borda);
+    color: var(--texto-principal);
+    font-size: 1rem;
+}
+
+.id-cell {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: bold;
+    color: var(--rosa-vivo);
+}
+
+.setinha {
+    display: inline-block;
+    font-size: 0.75rem;
+    color: var(--texto-secundario);
+    transition: transform 0.2s ease;
+}
+
+.row-pergunta.aberta .setinha {
+    transform: rotate(90deg);
+    color: var(--rosa-vivo);
+}
+
+.row-resposta {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.row-resposta.aberta {
+    display: table-row;
+}
+
+.row-resposta td {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--borda);
+}
+
+.resposta-box {
+    border-left: 4px solid var(--rosa-vivo);
+    background: linear-gradient(90deg, #180f17 0%, #0c0c10 100%);
+    padding: 1.5rem;
+    border-radius: 0 4px 4px 0;
+    color: #e4e4e7;
+    font-size: 1rem;
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+.actions-cell {
+    text-align: center;
+}
