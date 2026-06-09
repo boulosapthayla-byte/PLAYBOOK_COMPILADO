@@ -187,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 8. EXPORTAR / SINCRONIZAR COM O GITHUB (SUBSTITUIR OU CRIAR NOVO)
+   // 8. EXPORTAR / SUBIR PARA O GITHUB
     btnSincronizarGithub.addEventListener("click", async () => {
         const configs = JSON.parse(localStorage.getItem("matrix_github_cfg"));
         if (!configs || !configs.usuario || !configs.repositorio || !configs.token || !configs.arquivo) {
@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        if (questoesMatrix.length === 0) return alert("A Matrix está vazia!");
+        if (questoesMatrix.length === 0) return alert("A Matrix está vazia localmente para subir!");
 
         btnSincronizarGithub.textContent = "Sincronizando...";
         btnSincronizarGithub.disabled = true;
@@ -224,7 +224,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 message: `Update via Matrix Generator: ${configs.arquivo}`,
                 content: conteudoBase64
             };
-            if (sha) corpoCommit.sha = sha; // Se achou o SHA, o Git sabe que é substituição
+            if (sha) corpoCommit.sha = sha;
 
             const resposta = await fetch(urlAPI, {
                 method: "PUT",
@@ -249,6 +249,70 @@ document.addEventListener("DOMContentLoaded", () => {
             btnSincronizarGithub.disabled = false;
         }
     });
+
+    // 9. NOVO: IMPORTAR / BAIXAR AUTOMATICAMENTE DO GITHUB
+    const btnPuxarGit = document.getElementById("btn-puxar-git");
+    if (btnPuxarGit) {
+        btnPuxarGit.addEventListener("click", async () => {
+            const configs = JSON.parse(localStorage.getItem("matrix_github_cfg"));
+            if (!configs || !configs.usuario || !configs.repositorio || !configs.token || !configs.arquivo) {
+                alert("Configure os dados da conexão na aba 3 primeiro!");
+                alternarAba("config");
+                return;
+            }
+
+            btnPuxarGit.textContent = "Baixando...";
+            btnPuxarGit.disabled = true;
+
+            const urlAPI = `https://api.github.com/repos/${configs.usuario}/${configs.repositorio}/contents/${configs.arquivo}`;
+
+            try {
+                const resposta = await fetch(urlAPI, {
+                    method: "GET",
+                    headers: { 
+                        "Authorization": `token ${configs.token}`,
+                        "Accept": "application/vnd.github.v3+json"
+                    }
+                });
+
+                if (resposta.status === 404) {
+                    alert(`O arquivo '${configs.arquivo}' não foi encontrado no repositório. Certifique-se de preencher o nome correto ou subir um arquivo primeiro.`);
+                    return;
+                }
+
+                if (!resposta.ok) {
+                    throw new Error(`Erro: ${resposta.statusText}`);
+                }
+
+                const dadosArquivo = await resposta.json();
+                // Decodifica a string em Base64 vinda do GitHub tratando caracteres especiais
+                const conteudoDecodificado = decodeURIComponent(escape(atob(dadosArquivo.content)));
+                const dadosJSON = JSON.parse(conteudoDecodificado);
+
+                if (Array.isArray(dadosJSON)) {
+                    questoesMatrix = dadosJSON.map((item, i) => ({
+                        id: i + 1,
+                        pergunta: item.pergunta || "",
+                        resposta: item.resposta || ""
+                    }));
+                    
+                    // Salva na memória do navegador e atualiza a interface
+                    localStorage.setItem("playbook_questions", JSON.stringify(questoesMatrix));
+                    renderizarGradeMatriz();
+                    alert(`Sucesso! ${questoesMatrix.length} perguntas carregadas da nuvem diretamente na sua tela.`);
+                } else {
+                    alert("O arquivo no GitHub não está no formato de lista válido [].");
+                }
+
+            } catch (err) {
+                console.error(err);
+                alert("Erro ao conectar ou ler os dados da nuvem do GitHub.");
+            } finally {
+                btnPuxarGit.textContent = "Puxar dados do GitHub";
+                btnPuxarGit.disabled = false;
+            }
+        });
+    }
 
     renderizarGradeMatriz();
 });
