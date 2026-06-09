@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playbook Operacional - Gerenciador Matrix Pro</title>
+    <link rel="stylesheet" href="playbook2.css">
+    <script src="playbook2.js" defer></script>
+</head>
+<body>
+
+    <div class="container-p2">
+        <div class="header-p2">
+            <h1>PLAYBOOK // <span>MATRIX GENERATOR PRO</span></h1>
+            <p class="subtitle-p2">Crie, expanda, importe e exporte seus blocos dinâmicos para o GitHub</p>
+        </div>
+
+        <div class="nav-tabs">
+            <button id="tab-fabrica" class="tab-btn active" type="button">1. Escrever Pergunta</button>
+            <button id="tab-matriz" class="tab-btn" type="button">2. Visão em Matriz</button>
+            <button id="tab-config" class="tab-btn" type="button">3. Configurar GitHub</button>
+        </div>
+
+        <div class="content-p2">
+            
+            <section id="section-fabrica" class="tab-section active">
+                <form id="form-conteudo" class="form-matrix">
+                    <div class="input-group">
+                        <label for="txt-pergunta">Bloco de Pergunta / Revisão Teórica</label>
+                        <textarea id="txt-pergunta" placeholder="Digite aqui o contexto macro ou a pergunta de estudo..." required></textarea>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="txt-resposta">Resposta Fixa de Revisão</label>
+                        <textarea id="txt-resposta" placeholder="Digite aqui a resposta cirúrgica para fixação..." required></textarea>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-matrix">Salvar na Matrix Local</button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="section-matriz" class="tab-section">
+                <div class="matrix-controls">
+                    <span id="matrix-counter" class="counter-badge">0 itens salvos</span>
+                    
+                    <div class="control-buttons">
+                        <label for="input-importar" class="btn-matrix btn-secondary" style="cursor: pointer; display: inline-block;">
+                            Importar JSON
+                        </label>
+                        <input type="file" id="input-importar" accept=".json" style="display: none;">
+
+                        <button id="btn-sincronizar-github" class="btn-matrix" type="button">Subir pro GitHub</button>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="matrix-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 15%;">ID</th>
+                                <th style="width: 70%;">Pergunta / Bloco Técnico</th>
+                                <th style="width: 15%; text-align: center;">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="matrix-tbody">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="section-config" class="tab-section">
+                <div class="form-matrix">
+                    <div class="input-group">
+                        <label for="cfg-usuario">Usuário do GitHub</label>
+                        <input type="text" id="cfg-usuario" placeholder="Ex: seu-usuario">
+                    </div>
+                    <div class="input-group">
+                        <label for="cfg-repositorio">Nome do Repositório</label>
+                        <input type="text" id="cfg-repositorio" placeholder="Ex: playbook-operacional">
+                    </div>
+                    <div class="input-group">
+                        <label for="cfg-arquivo">Nome do Arquivo JSON (Para criar ou substituir)</label>
+                        <input type="text" id="cfg-arquivo" placeholder="Ex: modulo1.json" value="questoes_playbook.json">
+                        <p class="help-text">Mude o nome aqui se quiser criar um arquivo NOVO, ou mantenha igual para SUBSTITUIR o anterior.</p>
+                    </div>
+                    <div class="input-group">
+                        <label for="cfg-token">GitHub Personal Access Token (PAT)</label>
+                        <input type="password" id="cfg-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxx">
+                    </div>
+                    <div class="form-actions">
+                        <button id="btn-salvar-config" class="btn-matrix" type="button">Gravar Configurações</button>
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+    </div>
+
+</body>
+</html>
