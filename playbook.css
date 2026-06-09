@@ -103,19 +103,13 @@ header h1 span {
 
 
 .playbook-section-block {
-
     width: 100%; 
-
     background-color: var(--bg-azul-dark-vão);
-
     border: 1px solid var(--borda);
-
     border-radius: 8px;
-
     overflow: hidden;
-
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-
+    margin-bottom: 2rem; /* <--- Adicione esta linha para criar o espaçamento */
 }
 
 
@@ -185,31 +179,17 @@ header h1 span {
 
 
 .collapsible-content {
-
-    max-height: 0;
-
-    overflow: hidden;
-
-    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1);
-
+    display: none; /* Esconde por padrão */
 }
-
-
 
 .collapsible-content.open {
-
-    max-height: 2000px; /* Aumentado para não cortar os flashcards internos */
-
-    border-top: 1px solid var(--borda);
-
+    display: block; /* Mostra quando o JS adicionar a classe .open */
 }
 
 
 
-.collapsible-trigger[aria-expanded="false"] .arrow-icon {
-
+.collapsible-trigger[aria-expanded="true"] .arrow-icon {
     transform: rotate(-90deg); 
-
 }
 
 
@@ -361,23 +341,16 @@ header h1 span {
 
 
 .status-mensagem {
-
     font-size: 0.9rem;
-
     color: #00ff66;
-
     opacity: 0;
-
-    transition: opacity 0.3s ease;
-
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-
-
 .status-mensagem.visible {
-
     opacity: 1;
-
+    visibility: visible;
 }
 
 
@@ -493,13 +466,9 @@ header h1 span {
 
 
 .flashcard-wrapper {
-
     flex: 1;
-
-    min-height: 250px; 
-
+    height: 250px; 
     perspective: 1000px;
-
 }
 
 
@@ -812,4 +781,34 @@ header h1 span {
 .nav-indicador-pags span {
     color: var(--rosa-vivo);
     font-weight: 700;
+}
+/* ==========================================
+   CSS EXCLUSIVO DA PAGINAÇÃO DA TRILHA 4
+   ========================================== */
+.trilha4-paginas-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.t4-pagina {
+    display: none;
+    width: 100%;
+}
+
+.t4-pagina.active {
+    display: block;
+    animation: fadeInPage 0.3s ease-in-out;
+}
+
+.t4-navegacao-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--borda);
+    background-color: var(--bg-card-interno);
+    padding: 1rem 1.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--borda);
 }
